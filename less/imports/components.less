@@ -1,0 +1,432 @@
+//JUMBOTRON
+.jumbotron-wrapper {
+  .jumbotron {
+    position: relative;
+    color: #fff;
+    background-color: #1274b9;
+    background-repeat: no-repeat;
+    background-position: center top;
+    min-height: 528px;
+    overflow: hidden;
+    &.home-jumbotron {
+      background-image: url(../../../img/hype-home.jpg);
+      background-size: cover;
+      height: 700px;
+      padding-top: 0 !important;
+      padding-bottom: 0;
+      display: flex;
+      align-items: center;
+      
+      .section-title {
+        margin-top: 80px;
+        color: #fff;
+      }
+    }
+  
+    .jumbotron-heading {
+      padding-bottom: 40px;
+      margin-bottom: 0;
+    }
+    .paragraph-big {
+      margin: 0 0 40px 0;
+      text-align: center;
+    }
+  }
+
+  .jumbotron-home-video-wrapper {
+    height: 700px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: auto;
+  }
+
+  .ellipse-divider-bottom {
+    width: 100%;
+    z-index: 10;
+    position: absolute !important;
+    left: 0;
+    bottom: -7px;
+    pointer-events: none;
+  }
+}
+
+// WHAT WE DO
+.what-we-do-wrapper {
+  background: #e8f7fe;
+  position: relative;
+  z-index: 11;
+
+  #what-we-do {
+    margin-top: -160px;
+    padding: 0;
+    .text-box {
+      margin-bottom: 15px;
+    }
+    .elements svg {
+      width: auto;
+    }
+
+    .h4 {
+      font-size: 26px;
+    }
+  }
+
+  .what-we-do-item {
+    height: 420px;
+    padding: 20px;
+    position: relative;
+    display: block;
+    -webkit-box-shadow: 0 15px 15px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 15px 15px 0 rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;
+
+    .h4 {
+      padding: 0 0 30px 0;
+      color: #008bc6;
+    }
+  }
+}
+
+// SUCCESS STORIES
+.success-stories-wrapper {
+  padding-bottom: 50px;
+  background: url(../../../img/home/success-stories-bg.jpg) no-repeat;
+  background-size: cover;
+  width: 100%;
+
+  .section-title {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .work-item-content {
+    background: #fff;
+  }
+
+  // Need only on desktop
+  /* #success-stories {
+    display: flex;
+    flex-wrap: wrap;
+    > .project {
+      flex: 1 1 50%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  } */
+}
+
+.work-item {
+  position: relative;
+  display: block;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  padding: 0 0 10px 0;
+  overflow: hidden;
+  &:hover {
+    outline: none;
+  }
+
+  &.small {
+    .work-item-arrow {
+      position: absolute;
+      top: 0;
+      bottom: auto;
+      right: auto;
+      left: 30px;
+      width: 28px;
+      height: 15px;
+      margin-right: 0;
+      margin-top: -14px;
+      margin-left: 0;
+      &::before {
+        position: absolute;
+        content: '';
+        border-style: solid;
+        border-color: transparent transparent #fff transparent;
+        border-width: 0 14px 15px 14px;
+      }
+    }
+  }
+
+  .work-img-holder {
+    .img-responsive {
+      width: 100%;
+    }
+  }
+  
+  .work-item-content {
+    position: relative;
+    padding: 25px 30px;
+    background: #fff;
+  }
+
+  .work-details-wrap {
+    padding: 20px 0;
+    border-top: 1px solid #e7e7e7;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .work-detail-title {
+    color: #999999;
+    position: relative;
+    display: block;
+    // float: left;
+    // width: 40%;
+  }
+
+  .work-details-list {
+    font-family: "futura-pt", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #008bc6;
+    // width: 60%;
+    position: relative;
+    display: block;
+    // float: left;
+    // width: 40%;
+    > span {
+      position: relative;
+      display: block;
+      padding: 0 0 0 12px;
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 6px;
+        width: 7px;
+        height: 7px;
+        border-radius: 60px;
+        background: #f6ec31;
+      }
+    }
+  }
+
+  .h4 {
+    padding: 0 0 20px 0;
+    color: #008bc6;
+  }
+
+  .paragraph-small {
+    margin: 0 0 30px 0;
+  }
+}
+
+// HAPPY CLIENTS
+.happy-clients-wrapper {
+  // padding-top: 0 !important;
+  // padding-bottom: 40px;
+  .section-title {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .slick-list {
+    .slick-slide {
+      border-top: 1px solid #cccccc;
+      border-bottom: 1px solid #cccccc;
+      .client {
+        &::before {
+          left: 0;
+          content: '';
+          position: absolute;
+          display: block;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background: #cccccc;
+          z-index: 10;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          display: block;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background: #cccccc;
+          z-index: 10;
+        }
+      }
+    }
+  }
+}
+
+.testimonials {
+  margin-bottom: 90px;
+  .testimonial {
+    position: relative;
+    padding: 50px;
+    background: #e8f7fe;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 26px;
+    color: #008bc6;
+  }
+  .testimonial-icon {
+    position: absolute;
+    display: block;
+    width: 58px;
+    height: 45px;
+    left: 50px;
+    top: 0;
+    margin: -25px 0 0 0;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .testimonial-arrow {
+    position: absolute;
+    width: 15px;
+    height: 28px;
+    top: 17px;
+    right: 0;
+    margin-right: -14px;
+    &::before {
+      position: absolute;
+      content: '';
+      border-color: transparent transparent transparent #e8f7fe;
+      border-width: 14px 0px 14px 15px;
+      border-style: solid;
+    }
+  }
+  .testimonial-photo-wrap {
+    padding-bottom: 10px;
+  }
+  .slick-slide {
+    border: none !important;
+    .testimonial-photo {
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+      display: inline-block;
+    }
+  }
+  .testimonial-author {
+    font-family: "futura-pt", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    color: #008bc6;
+  }
+  .testimonial-title {
+    color: #999999;
+  }
+
+}
+
+.client {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  &:hover {
+    .client-hover {
+      opacity: 100;
+    }
+  }
+
+  .clients-img {
+    width: 100%;
+  }
+  .client-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #008bc6;
+    color: white;
+    text-align: center;
+    padding: 0 1em;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    h5 {
+      margin: 18% 0 14% 0;
+    }
+    .client-info {
+      display: block;
+      overflow: hidden;
+    }
+  }
+}
+
+.carousel-caption {
+  position: relative;
+  padding-top: 30px;
+  > .et_pb_text_inner {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// FULLWIDTH CTA
+.cta-free-copy-bg {
+  border-top: 10px solid #83D5FA;
+  background: url(../../../img/purple-banner.jpg) no-repeat;
+  background-size: cover;
+  min-height: 375px;
+  margin-bottom: 60px;
+  display: flex;
+
+  .et_pb_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .phones {
+    position: absolute;
+    max-width: 113%;
+    right: 0;
+    bottom: -182px;
+  }
+}
+
+.free-copy-title {
+  font-size: 40px;
+  font-family: "futura-pt", sans-serif;
+  text-align: left;
+  color: white;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+// LATEST BLOG POSTS
+#resources {
+  display: flex;
+  justify-content: center;
+ /*  .et_pb_column {
+    margin: 0;
+    .et_pb_column_1_3 {
+      width: 33.333%;
+    }
+    .et_pb_column_2_3 {
+      width: 66.666%;
+    }
+  } */
+  .et_pb_blog_grid {
+    .column {
+      margin: 0;
+      padding: 0 15px;
+      width: 33.333%;
+      &.size-1of2 {
+        width: 50%;
+      }
+    }
+  }
+
+  .btn-more {
+    width: 100%;
+  }
+}
+
+.resources-wrapper {
+	padding-bottom: 60px;
+}

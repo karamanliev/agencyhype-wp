@@ -1,0 +1,116 @@
+// Scroll bottom hide navigation 
+#main-header {
+  // transition: all .4s;
+
+  &.invisible {
+    opacity: 0;
+    top: -1000% !important;
+  }
+
+  &.et-fixed-header {
+    opacity: 0;
+  }
+
+  &.detached {
+    position: fixed !important;
+    top: 0;
+    opacity: 1 !important;
+    &:not(.invisible) {
+      // scroll up nav animation
+      animation: fadeSlideInNav 0.3s linear;
+    }
+  }
+
+}
+
+#main-header {
+  background: #FFF !important;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  animation: fadeSlideIn 0.3s linear;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background: #FFF;
+  }
+
+  .logo_container {
+    display: flex;
+    align-items: center;
+    > a {
+      color: rgba(51, 51, 51, 0.3);
+      position: relative;
+      height: 50px;
+      line-height: 20px;
+      font-size: 14px;
+      text-transform: none;
+      img {
+        width: 51px;
+        height: 50px;
+        max-height: none !important;
+        max-width: 100%;
+        + span {
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  #et-top-navigation {
+    padding: 0;
+  }
+
+  #top-menu-nav {
+    // hover item fade others to 0.5 opacity
+    &:hover li.menu-item:not(.btn) {
+      transition: 0s !important;
+      opacity: .5;
+    }
+
+    &:hover li.menu-item:hover {
+      opacity: 1;
+    }
+
+    #top-menu {
+      margin: 0 !important;
+      display: flex;
+      align-items: center;
+    }
+
+    li.menu-item {
+      padding-right: 32px;
+      a {
+        color: #008bc6;
+        font-size: 16px;
+        opacity: 1;
+        transition: 0s !important;
+        padding-bottom: 0;
+      }
+      &.btn.btn-default {
+        background-color: #f5eb48;
+        margin-top: 0px;
+        padding: 10px 15px;
+        // margin-top: -10px;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+        line-height: 20px;
+        a {
+          color: #4b4b4b;
+          padding-bottom: 0;
+          font-size: 14px;
+        }
+
+        &:hover {
+          background: #008bc6;
+          transition: all 0.3s ease-out !important;
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

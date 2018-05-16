@@ -1,0 +1,89 @@
+.fade {
+	opacity: 0;
+	transition: opacity 0.15s linear;
+}
+.fade.in {
+	opacity: 1;
+}
+.collapse {
+	display: none;
+}
+.collapse.in {
+	display: block;
+}
+tr.collapse.in {
+	display: table-row;
+}
+tbody.collapse.in {
+	display: table-row-group;
+}
+.collapsing {
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	transition-property: height, visibility;
+	transition-duration: 0.35s;
+	transition-timing-function: ease;
+}
+@keyframes fadeSlideIn {
+	0% {
+		opacity: 0;
+		transform: translateY(-85px);
+	}
+	50% {
+		opacity: 50;
+		transform: translateY(-40px);
+	}
+	100% {
+		opacity: 100;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeSlideInNav {
+	0% {
+		opacity: 0;
+		transform: translateY(-85px);
+	}
+	50% {
+		opacity: 50;
+		transform: translateY(-40px);
+	}
+	100% {
+		opacity: 100;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeSlideUp {
+	0% {
+		opacity: 0;
+		transform: translateY(85px);
+	}
+	50% {
+		opacity: 50;
+		transform: translateY(40px);
+	}
+	100% {
+		opacity: 100;
+		transform: translateY(0);
+	}
+}
+.bounce-effect {
+	animation: bounce 2s infinite;
+}
+@keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-30px);
+	}
+	60% {
+		transform: translateY(-15px);
+	}
+}

@@ -1,0 +1,341 @@
+* {
+	box-sizing: border-box;
+}
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: "adelle-sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #fff;
+}
+
+input,
+button,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+a {
+	color: #f6ec31;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+figure {
+	margin: 0;
+}
+img {
+	vertical-align: middle;
+	border: 0;
+}
+
+hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid #eeeeee;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: inherit;
+	line-height: 1.1;
+	color: inherit;
+	margin: 0;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small,
+.h1 small,
+.h2 small,
+.h3 small,
+.h4 small,
+.h5 small,
+.h6 small,
+h1 .small,
+h2 .small,
+h3 .small,
+h4 .small,
+h5 .small,
+h6 .small,
+.h1 .small,
+.h2 .small,
+.h3 .small,
+.h4 .small,
+.h5 .small,
+.h6 .small {
+	font-weight: normal;
+	line-height: 1;
+	color: #777777;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+h1 small,
+.h1 small,
+h2 small,
+.h2 small,
+h3 small,
+.h3 small,
+h1 .small,
+.h1 .small,
+h2 .small,
+.h2 .small,
+h3 .small,
+.h3 .small {
+	font-size: 65%;
+}
+h1,
+.h1 {
+	font-size: 60px;
+}
+h2,
+.h2 {
+	font-size: 48px;
+}
+h3,
+.h3 {
+	font-size: 40px;
+}
+h4,
+.h4 {
+	font-size: 30px;
+}
+h5,
+.h5 {
+	font-size: 24px;
+}
+h6,
+.h6 {
+	font-size: 16px;
+}
+h1,
+.h1,
+h2,
+.h2,
+h4,
+.h4,
+h5,
+.h5 {
+	font-family: "futura-pt", sans-serif;
+	font-weight: 700;
+}
+h2,
+.h2 {
+	text-transform: uppercase;
+}
+h5,
+.h5 {
+	text-transform: none;
+}
+
+p {
+	margin: 0 0 10px;
+}
+
+small,
+.small {
+	font-size: 85%;
+}
+mark,
+.mark {
+	background-color: #fcf8e3;
+	padding: .2em;
+}
+
+ul,
+ol {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+	margin-bottom: 0;
+}
+
+dl {
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+dt,
+dd {
+	line-height: 1.42857143;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-left: 0;
+}
+blockquote {
+	padding: 10px 20px;
+	margin: 0 0 20px;
+	font-size: 17.5px;
+	border-left: 5px solid #eeeeee;
+}
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+	margin-bottom: 0;
+}
+blockquote footer,
+blockquote small,
+blockquote .small {
+	display: block;
+	font-size: 80%;
+	line-height: 1.42857143;
+	color: #777777;
+}
+blockquote footer:before,
+blockquote small:before,
+blockquote .small:before {
+	content: '\2014 \00A0';
+}
+address {
+	margin-bottom: 20px;
+	font-style: normal;
+	line-height: 1.42857143;
+}
+code,
+kbd,
+pre,
+samp {
+	font-family: "futura-pt", sans-serif;
+}
+code {
+	padding: 2px 4px;
+	font-size: 90%;
+	color: #c7254e;
+	background-color: #f9f2f4;
+	border-radius: 60px;
+}
+kbd {
+	padding: 2px 4px;
+	font-size: 90%;
+	color: #fff;
+	background-color: #333;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+kbd kbd {
+	padding: 0;
+	font-size: 100%;
+	font-weight: bold;
+	box-shadow: none;
+}
+pre {
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.42857143;
+	word-break: break-all;
+	word-wrap: break-word;
+	color: #333333;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	border-radius: 60px;
+}
+pre code {
+	padding: 0;
+	font-size: inherit;
+	color: inherit;
+	white-space: pre-wrap;
+	background-color: transparent;
+	border-radius: 0;
+}
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	min-width: 0;
+}
+legend {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 20px;
+	font-size: 21px;
+	line-height: inherit;
+	color: #333333;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+input[type="search"] {
+	box-sizing: border-box;
+}
+input[type="radio"],
+input[type="checkbox"] {
+	margin: 4px 0 0;
+	margin-top: 1px \9;
+	line-height: normal;
+}
+input[type="file"] {
+	display: block;
+}
+input[type="range"] {
+	display: block;
+	width: 100%;
+}
+select[multiple],
+select[size] {
+	height: auto;
+}
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+output {
+	display: block;
+	padding-top: 11px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555555;
+}
