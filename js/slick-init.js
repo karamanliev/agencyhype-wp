@@ -66,6 +66,35 @@ jQuery(document).ready(function($){
   		}
   	}]
 	});
+
+  $('#resources .et_pb_ajax_pagination_container').slick({
+infinite: true,
+            speed: 600,
+            autoplaySpeed: 5000,
+            autoplay: true,
+            arrows: false,
+            slidesToShow: 3,
+            dots: false,
+
+            responsive: [
+
+                {
+
+                    breakpoint: 1169,
+                    settings: {
+                        slidesToShow: 2,
+                        dots: false
+                    }
+                },
+                {
+                    breakpoint: 749,
+                    settings: {
+                        slidesToShow: 1,
+                        dots: true
+                    }
+                }
+            ]
+	});
 	
 	$('.home-case-studies .home-case-studies > div').slick({
 		infinite: true,
