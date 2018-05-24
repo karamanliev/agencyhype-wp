@@ -33,6 +33,7 @@ function Custom_Modules(){
  if(class_exists("ET_Builder_Module")){
  include("/custom-modules/custom-portfolio-home.php");
  include("/custom-modules/custom-blog-home.php");
+ include("/custom-modules/custom-jumbotron-arrow.php");
  }
 }
 

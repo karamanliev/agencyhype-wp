@@ -1064,11 +1064,11 @@ class Custom_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
                       <h5 class="resource-title">
                         <?php the_title(); ?>
                       </h5>
-                    </div>
-                    <div class="text-center">
-                      <span class="text-center btn btn-more">
-                        <?php echo get_post_meta($post->ID, 'resource-button-label', true); ?>
-                      </span>
+                      <div class="text-center">
+                        <span class="text-center btn btn-more">
+                          <?php echo get_post_meta($post->ID, 'resource-button-label', true); ?>
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <div class="call-to-view"></div>
