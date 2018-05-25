@@ -31,8 +31,9 @@ body:not(.home) {
     position: fixed !important;
     top: 0;
     opacity: 1 !important;
-    &:not(.invisible) {
+    &:not(.invisible):not(.at-top) {
       // scroll up nav animation
+      background-color: #FFF !important;
       animation: fadeSlideInNav 0.3s linear;
     }
   }

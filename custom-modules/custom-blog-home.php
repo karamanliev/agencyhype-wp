@@ -1174,7 +1174,7 @@ class Custom_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
                     </div>
                   </div>
                 </div>
-                <div class="call-to-view"> Read more <span class="svg-icon arrow-right-white"><img src="img/icons/arrow-right.png" alt="read more"></span></div>
+                <div class="call-to-view"> Read more <span class="svg-icon arrow-right-white"><img src="<?php echo get_home_url(); ?>/img/icons/arrow-right.png" alt="read more"></span></div>
 							</a>
 					<?php
 						if ( 'on' !== $fullwidth ) echo '</div> <!-- .et_pb_image_container -->';

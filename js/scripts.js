@@ -18,6 +18,7 @@ jQuery(document).ready(function($) {
         // if scrolled past detach point add class to fix menu
         if (currentScroll > detachPoint) {
           if (!$('#main-header').hasClass('detached')) $('#main-header').addClass('detached');
+          $('#main-header').removeClass('at-top');
         }
         // if scrolling faster than hideShowOffset hide/show menu
         if (scrollDifference >= hideShowOffset) {
@@ -31,9 +32,10 @@ jQuery(document).ready(function($) {
         }
       } else {
         // only remove “detached” class if user is at the top of document (menu jump fix)
-        /* if (currentScroll <= 0) {
-          $('#main-header').removeClass();
-        } */
+        if (currentScroll <= 0) {
+          // $('#main-header').removeClass();
+          $('#main-header').addClass('at-top');
+        }
       }
       // if user is at the bottom of document show menu
       /* if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
@@ -43,4 +45,15 @@ jQuery(document).ready(function($) {
       previousScroll = currentScroll;
     }
   })
+
+
+  	/**
+	 * Content Marketing : continue reading button
+	 */
+	$('.slide-down').hide();
+	$( '.slide-down-trigger' ).click(function() {
+		$('.slide-down.collapse').addClass('in');
+		$('.slide-down').slideDown();
+	});
+
 });

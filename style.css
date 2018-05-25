@@ -128,27 +128,27 @@ h3 .small,
 }
 h1,
 .h1 {
-  font-size: 60px !important;
+  font-size: 60px;
 }
 h2,
 .h2 {
-  font-size: 48px !important;
+  font-size: 48px;
 }
 h3,
 .h3 {
-  font-size: 40px !important;
+  font-size: 40px;
 }
 h4,
 .h4 {
-  font-size: 30px !important;
+  font-size: 30px;
 }
 h5,
 .h5 {
-  font-size: 24px !important;
+  font-size: 24px;
 }
 h6,
 .h6 {
-  font-size: 16px !important;
+  font-size: 16px;
 }
 h1,
 .h1,
@@ -1717,7 +1717,8 @@ body:not(.home) #main-header:hover {
   top: 0;
   opacity: 1 !important;
 }
-#main-header.detached:not(.invisible) {
+#main-header.detached:not(.invisible):not(.at-top) {
+  background-color: #FFF !important;
   -webkit-animation: fadeSlideInNav 0.3s linear;
   animation: fadeSlideInNav 0.3s linear;
 }
@@ -2091,11 +2092,6 @@ h1.jumbotron-heading {
 .text-capitalize {
   text-transform: capitalize;
 }
-.thumbnail {
-  display: block;
-  line-height: 1.42857143;
-  background-color: transparent;
-}
 .call-to-view {
   position: absolute;
   bottom: 0;
@@ -2297,6 +2293,9 @@ h1.jumbotron-heading {
 .svg-icon.member-social img {
   width: 18px;
 }
+.svg-icon.member-social:hover {
+  background: #83d5f8;
+}
 .svg-icon svg,
 .svg-icon img {
   display: inline-block;
@@ -2319,6 +2318,25 @@ h1.jumbotron-heading {
   display: block;
   width: 50px;
   height: auto;
+}
+.process-image {
+  margin: 50px 0;
+}
+.process-image img {
+  max-width: 90%;
+  margin-left: 100px;
+}
+.thumbnail {
+  display: block;
+  line-height: 1.42857143;
+  background-color: transparent;
+}
+/* HIDE SLIDE DOWN BUTTON ON CLICK */
+.centered-paragraph-box .collapse.in + .btn-info {
+  display: none;
+  -webkit-transition-delay: 1s;
+  -o-transition-delay: 1s;
+  transition-delay: 1s;
 }
 .jumbotron-wrapper {
   padding: 0;
@@ -2532,6 +2550,10 @@ h1.jumbotron-heading {
 }
 .work-item .paragraph-small {
   margin: 0 0 30px 0;
+}
+.our-work-small .btn-info {
+  margin-top: 0;
+  margin-bottom: 100px;
 }
 .happy-clients-wrapper .section-title {
   padding-top: 50px;
@@ -2848,6 +2870,14 @@ h1.jumbotron-heading {
   color: #bbb;
   padding: 35px 0 35px 30px;
 }
+@media (min-width: 1170px) {
+  .resources-wrapper.services-pages {
+    padding-bottom: 30px !important;
+  }
+  .resources-wrapper.services-pages .section-title {
+    padding-bottom: 100px;
+  }
+}
 .expertise-item .resource-article {
   padding-bottom: 0;
 }
@@ -2997,6 +3027,7 @@ h1.jumbotron-heading {
   line-height: 20px;
   position: relative;
   top: 3px;
+  margin-bottom: 12px;
 }
 .gdd-banner a span {
   padding-left: 15px;
@@ -3017,7 +3048,7 @@ h1.jumbotron-heading {
 }
 .marketing-jumbotron .et_pb_fullwidth_header_scroll a {
   float: right;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   margin-right: 15px;
   display: inline-block;
 }
@@ -3069,6 +3100,121 @@ h1.jumbotron-heading {
   border-bottom: 10px solid #FCED1C;
   -webkit-box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.1);
+}
+/* B2B SPECIFIC */
+.content-marketing-benefits {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+.content-marketing-benefits .section-title {
+  margin-bottom: 50px;
+}
+.banners {
+  margin-bottom: 100px;
+  -webkit-box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.1);
+}
+.banners .information {
+  min-height: 400px;
+  padding: 5px 30px 15px 30px;
+  background: #075677;
+}
+.banners .information h2 {
+  color: #fff;
+  font-size: 36px;
+  padding-bottom: 10px;
+  text-transform: capitalize;
+}
+.banners .information .paragraph-small {
+  font-size: 14px;
+  color: #fff;
+}
+.banners .information img {
+  max-width: 100%;
+  margin-top: 50px;
+}
+.banners .description {
+  padding: 30px;
+  background: #eaf9f1;
+}
+.banners .description h5 {
+  padding-bottom: 20px;
+  font-size: 16px;
+  color: #48d999;
+  text-transform: uppercase;
+}
+.banners .description ul {
+  padding: 0;
+  list-style-type: none;
+}
+.banners .description li {
+  padding: 13px 0 13px 40px;
+  color: #2d9e6d;
+  font-size: 18px;
+  line-height: 21px;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700;
+  background: url(../../../img/website-design/ticks.png) left top 8px no-repeat;
+}
+.banners .description .btn-more {
+  margin: 25px 0 15px 0;
+  background: #008bc6;
+  color: #fff;
+  border-color: #008bc6;
+}
+.banners .description .btn-more .down-arrow {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.image-plus-paragraph .thumbnail {
+  min-height: 385px;
+  padding: 0 30px 50px 30px;
+}
+.image-plus-paragraph .thumbnail-img {
+  min-height: 120px;
+}
+.image-plus-paragraph .h4 {
+  color: #008bc6;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700;
+}
+/* AGILE PROCESS */
+.agile-process {
+  padding-top: 50px;
+  margin-bottom: 50px;
+  background: #e8f7fe;
+}
+.agile-process .section-title {
+  margin-bottom: 45px;
+}
+.agile-process .paragraph-small {
+  margin-bottom: 45px;
+}
+.agile-process .thumbnail {
+  min-height: 310px;
+}
+.agile-process .h4 {
+  padding-bottom: 20px;
+  font-size: 24px;
+}
+@media (min-width: 1170px) {
+  .content-marketing-benefits {
+    padding-top: 100px !important;
+  }
+  .content-marketing-benefits .section-title {
+    margin-bottom: 95px;
+  }
+  .agile-process {
+    padding-top: 100px !important;
+    padding-bottom: 50px !important;
+    margin-bottom: 100px;
+  }
+}
+@media (min-width: 320px) {
+  .content-marketing-benefits {
+    padding-bottom: 0 !important;
+  }
 }
 .fade {
   opacity: 0;

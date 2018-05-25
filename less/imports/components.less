@@ -243,6 +243,13 @@
   }
 }
 
+.our-work-small {
+  .btn-info {
+  margin-top: 0;
+  margin-bottom: 100px;
+  }
+}
+
 // HAPPY CLIENTS
 .happy-clients-wrapper {
   // padding-top: 0 !important;
@@ -576,6 +583,17 @@
   }
 }
 
+@media (min-width: 1170px) {
+  .resources-wrapper {
+    &.services-pages {
+      padding-bottom: 30px !important;
+      .section-title {
+        padding-bottom: 100px;
+      }
+    }
+  }
+}
+
 // EXPERTISE
 .expertise-item {
   .resource-article {
@@ -726,6 +744,7 @@
     line-height: 20px;
     position: relative;
     top: 3px;
+    margin-bottom: 12px;
     }
     span {
       padding-left: 15px;
@@ -750,7 +769,7 @@
     z-index: 9999;
     a {
       float: right;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
       margin-right: 15px;
       display: inline-block;
       > span {
@@ -805,4 +824,124 @@
   border-bottom: 10px solid #FCED1C;
   -webkit-box-shadow: 0 15px 15px 0 rgba(0,0,0,0.1);
   box-shadow: 0 15px 15px 0 rgba(0,0,0,0.1);
+}
+
+/* B2B SPECIFIC */
+.content-marketing-benefits {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  .section-title {
+    margin-bottom: 50px;
+  }
+}
+
+.banners {
+  margin-bottom: 100px;
+  box-shadow: 0 15px 15px 0 rgba(0,0,0,0.1);
+  .information {
+    min-height: 400px;
+    padding: 5px 30px 15px 30px;
+    background: #075677;
+    h2 {
+      color: #fff;
+      font-size: 36px;
+      padding-bottom: 10px;
+      text-transform: capitalize;
+    }
+    .paragraph-small {
+      font-size: 14px;
+      color: #fff;
+    }
+    img {
+      max-width: 100%;
+      margin-top: 50px;
+    }
+  }
+  .description {
+    padding: 30px;
+    background: #eaf9f1;
+    h5 {
+      padding-bottom: 20px;
+      font-size: 16px;
+      color: #48d999;
+      text-transform: uppercase;
+    }
+    ul {
+      padding: 0;
+      list-style-type: none;
+    }
+    li {
+      padding: 13px 0 13px 40px;
+      color: #2d9e6d;
+      font-size: 18px;
+      line-height: 21px;
+      font-family: "futura-pt", sans-serif;
+      font-weight: 700;
+      background: url(../../../img/website-design/ticks.png) left top 8px no-repeat;
+    }
+    .btn-more {
+      margin: 25px 0 15px 0;
+      background: #008bc6;
+      color: #fff;
+      border-color: #008bc6;
+      .down-arrow {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+.image-plus-paragraph {
+  .thumbnail {
+    min-height: 385px;
+    padding: 0 30px 50px 30px;
+  }
+  .thumbnail-img {
+    min-height: 120px;
+  }
+  .h4 {
+    color: #008bc6;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 700;
+  }
+}
+
+/* AGILE PROCESS */
+.agile-process {
+  padding-top: 50px;
+  margin-bottom: 50px;
+  background: #e8f7fe;
+  .section-title {
+    margin-bottom: 45px;
+  }
+  .paragraph-small {
+    margin-bottom: 45px;
+  }
+  .thumbnail {
+    min-height: 310px;
+  }
+  .h4 {
+    padding-bottom: 20px;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1170px) {
+  .content-marketing-benefits {
+    padding-top: 100px !important;
+    .section-title {
+      margin-bottom: 95px;
+    }
+  }
+  .agile-process {
+    padding-top: 100px !important;
+    padding-bottom: 50px !important;
+    margin-bottom: 100px;
+  }
+}
+
+@media (min-width: 320px) {
+  .content-marketing-benefits {
+    padding-bottom: 0 !important;
+  }
 }

@@ -554,7 +554,7 @@ class Custom_ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBase
               <span class="work-item-arrow"></span>
 						</div>
 						<div class="call-to-view">
-						View Case Study <span class="svg-icon arrow-right-white"><img alt="view case study" src="img/icons/arrow-right.png"></span>
+						View Case Study <span class="svg-icon arrow-right-white"><img alt="view case study" src="<?php echo get_home_url(); ?>/img/icons/arrow-right.png"></span>
 						</div>
 					</a>
 					<?php } ?>
