@@ -1,9 +1,9 @@
 <?php
 
-class Custom_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
+class Custom_Page_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 	function init() {
-		$this->name       = esc_html__( 'Custom HYPE Resources', 'et_builder' );
-		$this->slug       = 'et_pb_blog_2';
+		$this->name       = esc_html__( 'Custom HYPE Resources PAGE', 'et_builder' );
+		$this->slug       = 'et_pb_blog_3';
 		$this->vb_support = 'on';
 		$this->main_css_element = '%%order_class%% .et_pb_post';
 
@@ -1000,97 +1000,12 @@ class Custom_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 
 		ob_start();
 
-    /*================================================
-    # CUSTOM: SHOW 1 RESOURCE POST BEFORE THE OTHERS
-    ================================================*/
-    query_posts( $args, $args_res );
-    $args_res = array(
-      'post_type' => 'post' ,
-      'orderby' => 'date' ,
-      'order' => 'DESC' ,
-      'posts_per_page' => 1,
-      'cat'         => 'resources',
-      'paged' => get_query_var('paged'),
-      'post_parent' => $parent
-    ); 
-
-    $query_res = new WP_Query($args_res);
-    if ( $query_res -> have_posts() ) { 
-      while ( $query_res -> have_posts() ) {
-        $query_res -> the_post();
-
-      ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post clearfix' . $no_thumb_class . $overlay_class  ); ?>>
-
-        <?php
-          et_divi_post_format_content();
-
-          if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) || post_password_required( $post ) ) {
-            if ( 'video' === $post_format && false !== ( $first_video = et_get_first_video() ) ) :
-              $video_overlay = has_post_thumbnail() ? sprintf(
-                '<div class="et_pb_video_overlay" style="background-image: url(%1$s); background-size: cover;">
-                  <div class="et_pb_video_overlay_hover">
-                    <a href="#" class="et_pb_video_play"></a>
-                  </div>
-                </div>',
-                $thumb
-              ) : '';
-
-              printf(
-                '<div class="et_main_video_container">
-                  %1$s
-                  %2$s
-                </div>',
-                $video_overlay,
-                $first_video
-              );
-            elseif ( 'gallery' === $post_format ) :
-              et_pb_gallery_images( 'slider' );
-            elseif ( '' !== $thumb && 'on' === $show_thumbnail ) :
-              if ( 'on' !== $fullwidth ) {
-                echo '<div class="et_pb_image_container">';
-              }
-              ?>
-                <a href="<?php esc_url( the_permalink() ); ?>" target="_blank" class="resource-article yellow-tag-type">
-                  <?php echo '<img src="'.get_the_post_thumbnail_url().'" alt="'.get_the_title().'" class="resource-img" />'; ?>
-                  <div class="resource-content-wrap">
-                    <?php $tags = get_the_tags($post->ID);  ?>
-                    <ul class="badges text-uppercase">
-                      <?php foreach($tags as $tag) :  ?>
-                      <li class="resource-badge"><?php print_r($tag->name); ?></li>
-                      <?php endforeach; ?>
-                    </ul>
-                    <div class="resource-content">
-                      <h5 class="resource-title">
-                        <?php the_title(); ?>
-                      </h5>
-                      <div class="text-center">
-                        <span class="text-center btn btn-more">
-                          <?php echo get_post_meta($post->ID, 'resource-button-label', true); ?>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="call-to-view"></div>
-                </a>
-            <?php
-              if ( 'on' !== $fullwidth ) echo '</div> <!-- .et_pb_image_container -->';
-            endif;
-          } ?>
-
-        </article> <!-- .et_pb_post -->
-      <?php
-      
-      }
-    }
-    /*================================================
-    # CUSTOM END
-    ================================================*/
+		query_posts( $args );
 
 		if ( have_posts() ) {
 			if ( 'off' === $fullwidth ) {
 				echo '<div class="et_pb_salvattore_content" data-columns>';
-      }
+			}
 
 			while ( have_posts() ) {
 				the_post();
@@ -1148,39 +1063,66 @@ class Custom_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 						if ( 'on' !== $fullwidth ) {
 							echo '<div class="et_pb_image_container">';
 						}
-						?>
-							<a href="<?php esc_url( the_permalink() ); ?>" class="resource-article blue-tag-type">
-              <?php echo '<img src="'.get_the_post_thumbnail_url().'" alt="'.get_the_title().'" class="resource-img" />'; ?>
-                <div class="resource-content-wrap">
-                  <ul class="badges text-uppercase">
-                    <?php
-                    $category = get_the_category($post->ID);
-                    foreach ($category as $catVal) {
-                      echo '<li class="resource-badge">'.$catVal->name.'</li>'; 
-                    }
-                    ?>
-                  </ul>
-                  <div class="resource-content">
-                    <h5 class="resource-title">
-                      <?php the_title(); ?>
-                    </h5>
-                    <p class="resourse-text visible-lg visible-md">
-                      <?php the_excerpt(); ?>
-                    </p>
-                    <div class="author-info">
-                      <img src="<?php echo get_avatar_url( get_the_author_meta ( 'ID' )); ?>" alt="<?php the_author_meta( 'display_name' ); ?>" class="profile-pic pull-left" />
-                      <span class="author-name bolded-text pull-left"><?php the_author_meta( 'display_name' ); ?></span>
-                      <span class="reads-count pull-right"><?php echo get_post_meta($post->ID, 'read-time', true); ?></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="call-to-view"> Read more <span class="svg-icon arrow-right-white"><img src="<?php echo get_home_url(); ?>/img/icons/arrow-right.png" alt="read more"></span></div>
-							</a>
-					<?php
+
+						// IF THERE'S CUSTOM DOWNLOAD LINK GO DIRECTLY THERE
+						$direct_download_url = get_post_meta($post->ID, 'direct-download-link', true);
+						if ( get_post_meta( $post->ID, 'direct-download-link', true ) ) {
+							?>
+								<a href="<?php echo esc_url( $direct_download_url ); ?>" target="_blank" class="resource-article yellow-tag-type yellow-bordered">
+									<?php echo '<img src="'.get_the_post_thumbnail_url().'" alt="'.get_the_title().'" class="resource-img" />'; ?>
+									<div class="resource-content-wrap">
+										<?php $tags = get_the_tags($post->ID);  ?>
+										<ul class="badges text-uppercase">
+											<?php foreach($tags as $tag) :  ?>
+											<li class="resource-badge"><?php print_r($tag->name); ?></li>
+											<?php endforeach; ?>
+										</ul>
+										<div class="resource-content">
+											<h5 class="resource-title">
+												<?php the_title(); ?>
+											</h5>
+											<div class="text-center">
+												<span class="text-center btn btn-more">
+													<?php echo get_post_meta($post->ID, 'resource-button-label', true); ?>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="call-to-view"></div>
+								</a>
+							<?php
+							
+						} else {
+							?>
+								<a href="<?php esc_url( the_permalink() ); ?>" target="_blank" class="resource-article yellow-tag-type yellow-bordered">
+									<?php echo '<img src="'.get_the_post_thumbnail_url().'" alt="'.get_the_title().'" class="resource-img" />'; ?>
+									<div class="resource-content-wrap">
+										<?php $tags = get_the_tags($post->ID);  ?>
+										<ul class="badges text-uppercase">
+											<?php foreach($tags as $tag) :  ?>
+											<li class="resource-badge"><?php print_r($tag->name); ?></li>
+											<?php endforeach; ?>
+										</ul>
+										<div class="resource-content">
+											<h5 class="resource-title">
+												<?php the_title(); ?>
+											</h5>
+											<div class="text-center">
+												<span class="text-center btn btn-more">
+													<?php echo get_post_meta($post->ID, 'resource-button-label', true); ?>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="call-to-view"></div>
+								</a>
+							<?php
+						}
+
 						if ( 'on' !== $fullwidth ) echo '</div> <!-- .et_pb_image_container -->';
 					endif;
-        } ?>
-        
+				} ?>
+
 			</article> <!-- .et_pb_post -->
 	<?php
 			} // endwhile
@@ -1355,4 +1297,4 @@ class Custom_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 	}
 }
 
-new Custom_ET_Builder_Module_Blog;
+new Custom_Page_ET_Builder_Module_Blog;

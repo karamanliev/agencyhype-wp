@@ -31,9 +31,14 @@ add_action( 'wp_head', 'theme_typekit_inline' );
 ================================================*/
 function Custom_Modules(){
  if(class_exists("ET_Builder_Module")){
- include("/custom-modules/custom-portfolio-home.php");
- include("/custom-modules/custom-blog-home.php");
- include("/custom-modules/custom-jumbotron-arrow.php");
+ include("/custom-modules/custom-latest-case-studies.php");
+ include("/custom-modules/custom-latest-resources.php");
+ include("/custom-modules/custom-resources-page.php");
+ include("/custom-modules/custom-blog-page.php");
+ include("/custom-modules/custom-portfolio-big.php");
+ include("/custom-modules/custom-portfolio-small-1.php");
+ include("/custom-modules/custom-portfolio-small-2.php");
+//  include("/custom-modules/custom-jumbotron-arrow.php");
  }
 }
 
@@ -65,4 +70,28 @@ function slick_enqueue_scripts_styles() {
 	wp_enqueue_script( 'slickjs-init', get_stylesheet_directory_uri(). '/js/slick-init.js', array( 'slickjs' ), '1.8.1', true );
 	// wp_enqueue_style( 'slickcss', get_stylesheet_directory_uri() . '/css/slick.css', '1.8.1', 'all');
 	// wp_enqueue_style( 'slickcsstheme', get_stylesheet_directory_uri(). '/css/slick-theme.css', '1.8.1', 'all');
+}
+
+/*================================================
+# Add page slug to body class
+================================================*/
+function add_slug_body_class( $classes ) {
+    global $post;
+        if ( isset( $post ) ) {
+            $classes[] = $post->post_type . '-' . $post->post_name;
+        }
+        return $classes;
+    }
+add_filter( 'body_class', 'add_slug_body_class' );
+
+/*================================================
+# Reduce Posts Count for Case Studies Page 
+# Needed for offset and pagination to work OK
+================================================*/
+add_filter('found_posts', 'adjust_offset_pagination', 1, 2 );
+function adjust_offset_pagination($found_posts, $query) {
+    if ( $query->get( 'offsetreduced' ) ) {
+        return $found_posts - 3;
+    }
+    return $found_posts;
 }

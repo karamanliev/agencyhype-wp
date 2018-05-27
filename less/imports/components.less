@@ -150,7 +150,7 @@
   margin-bottom: 30px;
   padding: 0 0 10px 0;
   overflow: hidden;
-  &:hover {
+  &:hover, &:focus {
     outline: none;
   }
 
@@ -174,14 +174,54 @@
         border-width: 0 14px 15px 14px;
       }
     }
-  }
-
-  .work-img-holder {
-    .img-responsive {
-      width: 100%;
+    .work-img-holder {
+      .img-responsive {
+        width: 100%;
+      }
     }
   }
-  
+
+  &.big {
+    .work-img-holder {
+      overflow: hidden;
+      > img {
+        width: 100%;
+      }
+    }
+    > [class^='col-'] {
+      padding-left: 0;
+      padding-right: 0;
+      &.work-item-content {
+        position: relative;
+        padding: 25px 30px;
+        background: #fff;
+      }
+    }
+    .work-item-arrow {
+      position: absolute;
+      width: 15px;
+      height: 28px;
+      top: 30px;
+      left: 0;
+      margin-left: -14px;
+      &::before {
+        position: absolute;
+        content: '';
+        border-color: transparent #fff transparent transparent;
+        border-width: 14px 15px 14px 0;
+        border-style: solid;
+      }
+    }
+    .work-details-wrap {
+      > .work-detail-title {
+        flex-basis: 40%;
+      }
+      > .work-details-list {
+        flex-basis: 60%;
+      }
+    }
+  }
+
   .work-item-content {
     position: relative;
     padding: 25px 30px;
@@ -250,10 +290,21 @@
   }
 }
 
+@media (min-width: 1170px) {
+  .work-item {
+    &:hover {
+      cursor: pointer;
+    }
+    &.big {
+      margin-bottom: 45px;
+    }
+  }
+}
+
 // HAPPY CLIENTS
 .happy-clients-wrapper {
   // padding-top: 0 !important;
-  // padding-bottom: 40px;
+  padding-bottom: 40px !important;
   .section-title {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -286,6 +337,11 @@
         }
       }
     }
+  }
+  &.blue-bg {
+    padding-top: 0;
+    background: #e8f7fe;
+    padding-top: 50px;
   }
 }
 
@@ -473,6 +529,13 @@
       height: 10px;
       transition: all 0.3s ease-out;
     }
+    &.yellow-bordered {
+      .resource-title {
+        overflow: hidden;
+        padding: 0 !important;
+        margin: 10px 0 20px 0;
+      }
+    }
   }
 
   .resource-content-wrap {
@@ -594,6 +657,18 @@
   }
 }
 
+@media (min-width: 750px) {
+  .resources-wrapper {
+    .resource-article {
+      &.yellow-bordered {
+        .resource-title {
+          height: 54px;
+        }
+      }
+    }
+  }
+}
+
 // EXPERTISE
 .expertise-item {
   .resource-article {
@@ -624,6 +699,7 @@
     padding-bottom: 25px;
     display: flex;
     align-items: center;
+    font-size: 30px;
   }
   .paragraph-smallest {
     color: #fff;
@@ -903,6 +979,7 @@
     color: #008bc6;
     font-family: "futura-pt", sans-serif;
     font-weight: 700;
+    font-size: 30px;
   }
 }
 
@@ -924,6 +1001,180 @@
     padding-bottom: 20px;
     font-size: 24px;
   }
+  .thumbnail-img {
+    min-height: 150px;
+  }
+}
+
+.rounded-number {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 60px;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff;
+  background: #008bc6;
+}
+
+/* PAY PER CLICK */
+.pay-per-click-page {
+  .banners {
+    .information {
+      min-height: 185px;
+    }
+    .description {
+      ul {
+        margin: 0;
+      }
+      li {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+/* SCHEME PROCESS */
+.scheme-process {
+  text-align: center;
+  .thumbnail {
+    min-height: auto;
+  }
+  .h4 {
+    font-size: 30px;
+  }
+  .scheme-pic {
+    max-width: 100%;
+    margin-bottom: 50px;
+  }
+  .d-flex {
+    h4 {
+      font-size: 18px;
+    }
+  }
+}
+
+.scheme-3 {
+  .et_pb_code_inner {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+  }
+  .h4 {
+    font-size: 30px;
+  }
+}
+
+/* WHAT WE OFFER */
+.what-we-offer {
+  padding-bottom: 100px !important;
+  .section-title, .paragraph-small {
+    margin: 0 0 100px 0;
+  }
+  .thumbnail {
+    position: relative;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+    margin: 0 0 25px 0;
+  }
+  .caption-label {
+    display: block;
+    font-size: 14px;
+    line-height: 30px;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    background: #83d5f8;
+    color: #333333;
+  }
+  .h5 {
+    padding: 25px 0;
+    text-align: center;
+    color: #fff;
+    background: #008bc6;
+    font-size: 24px;
+  }
+  .caption {
+    padding: 30px;
+    > .paragraph-smallest {
+      margin-bottom: 25px;
+    }
+  }
+  .caption-list-title {
+    position: relative;
+    display: block;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #008bc6;
+    padding: 0 0 10px 20px;
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 60px;
+      background: #008bc6;
+    }
+  }
+  .caption-list-wrap {
+    .paragraph-smallest {
+      padding: 0 0 0 20px;
+    }
+  }
+}
+
+.single-offer {
+  &:first-child {
+    .thumbnail {
+      background: #e8f7fe;
+      .caption-label {
+        background: #f6ed32;
+      }
+    }
+  }
+}
+
+.css-plus {
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background: #f6ec31;
+  top: 0;
+  left: 50%;
+  margin: -45px 0 0 -30px;
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 50%;
+    bottom: auto;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    margin: -1px 0 0 0;
+    background: #008bc6;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 10px;
+    bottom: 10px;
+    left: 50%;
+    right: auto;
+    width: 2px;
+    margin: 0 0 0 -1px;
+    background: #008bc6;
+  }
 }
 
 @media (min-width: 1170px) {
@@ -937,11 +1188,67 @@
     padding-top: 100px !important;
     padding-bottom: 50px !important;
     margin-bottom: 100px;
+    .process-separator {
+      margin-bottom: 60px;
+    }
+  }
+  .what-we-offer {
+    .thumbnail {
+      min-height: 490px;
+      margin: 0;
+    }
+    .caption {
+      height: 390px;
+    }
+  }
+  .css-plus {
+    left: 0;
+    top: 50%;
+    margin: -30px 0 0 -30px;
+  }
+}
+
+@media (min-width: 750px) {
+  .agile-process {
+    .process-separator {
+      margin-bottom: 45px;
+    }
   }
 }
 
 @media (min-width: 320px) {
   .content-marketing-benefits {
     padding-bottom: 0 !important;
+  }
+}
+
+
+// RESOURCES
+body.page-resources {
+  .resources-wrapper {
+    .et_pb_ajax_pagination_container {
+      display: flex;
+      flex-wrap: wrap;
+      > article.et_pb_post {
+        padding: 0 15px;
+        flex: 0 1 33.333%;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// CASE STUDIES
+body.page-case-studies {
+  .our-work-small {
+    .et_pb_ajax_pagination_container {
+      display: flex;
+      flex-wrap: wrap;
+      > .project {
+        padding: 0 15px;
+        flex: 0 1 50%;
+        margin-bottom: 0;
+      }
+    }
   }
 }

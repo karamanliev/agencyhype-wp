@@ -1,9 +1,9 @@
 <?php
 
-class Custom_ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBased {
+class Custom_ET_Builder_Module_Portfolio_Small_1 extends ET_Builder_Module_Type_PostBased {
 	function init() {
-		$this->name       = esc_html__( 'Custom HYPE Case Studies', 'et_builder' );
-		$this->slug       = 'et_pb_portfolio_2';
+		$this->name       = esc_html__( 'Custom HYPE Case Studies SMALL 1', 'et_builder' );
+		$this->slug       = 'et_pb_portfolio_2_small_1';
 		$this->vb_support = 'on';
 
 		$this->main_css_element = '%%order_class%% .et_pb_portfolio_item';
@@ -329,6 +329,7 @@ class Custom_ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBase
 			'posts_per_page' => (int) $args['posts_number'],
 			'post_type'      => 'project',
 			'post_status'    => 'publish',
+			'offset'         => 1,
 		);
 
 		// Conditionally get paged data
@@ -524,14 +525,10 @@ class Custom_ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBase
 					<!-- CUSTOM PROJECT  -->
 					<a class="work-item small" href="<?php echo esc_url( $post->post_permalink ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
 						<?php if ( 'on' === $fullwidth ) { ?>
-							<span class="et_portfolio_image">
-								<img src="<?php echo esc_url( $post->post_thumbnail ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" width="1080" height="9999" />
-							</span>
-						<?php } else { ?>
 							<div class="work-img-holder">
-								<img class="img-responsive" src="<?php echo esc_url( $post->post_thumbnail ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" />
-								<!-- <?php echo $overlay; ?> -->
+								<img src="<?php echo esc_url( $post->post_thumbnail ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="img-responsive" />
 							</div>
+						<?php } else { ?>
 						<?php } ?>
 						<div class="work-item-content">
 							<h4 class="h4"><?php echo esc_attr( get_the_title() ); ?></h4>
@@ -685,4 +682,4 @@ class Custom_ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBase
 	}
 }
 
-new Custom_ET_Builder_Module_Portfolio;
+new Custom_ET_Builder_Module_Portfolio_Small_1;
