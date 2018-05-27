@@ -95,3 +95,13 @@ function adjust_offset_pagination($found_posts, $query) {
     }
     return $found_posts;
 }
+
+/*================================================
+# Add class to next/previous post links 
+================================================*/
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+    return 'class="btn btn-more"';
+}

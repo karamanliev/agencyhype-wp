@@ -1009,9 +1009,8 @@ class Custom_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
       'orderby' => 'date' ,
       'order' => 'DESC' ,
       'posts_per_page' => 1,
-      'cat'         => 'resources',
+      'category_name'  => 'resources',
       'paged' => get_query_var('paged'),
-      'post_parent' => $parent
     ); 
 
     $query_res = new WP_Query($args_res);
@@ -1196,9 +1195,7 @@ class Custom_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
                     <h5 class="resource-title">
                       <?php the_title(); ?>
                     </h5>
-                    <p class="resourse-text visible-lg visible-md">
-                      <?php the_excerpt(); ?>
-                    </p>
+                    <p class="resourse-text visible-lg visible-md"><?php echo  get_the_excerpt(); ?></p>
                     <div class="author-info">
                       <img src="<?php echo get_avatar_url( get_the_author_meta ( 'ID' )); ?>" alt="<?php the_author_meta( 'display_name' ); ?>" class="profile-pic pull-left" />
                       <span class="author-name bolded-text pull-left"><?php the_author_meta( 'display_name' ); ?></span>

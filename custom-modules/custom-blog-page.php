@@ -1003,6 +1003,7 @@ class Custom_ET_Builder_Module_Blog_Page extends ET_Builder_Module_Type_PostBase
 		query_posts( $args );
 
 		if ( have_posts() ) {
+			$postCount = 1;
 			if ( 'off' === $fullwidth ) {
 				echo '<div class="et_pb_salvattore_content" data-columns>';
 			}
@@ -1032,8 +1033,12 @@ class Custom_ET_Builder_Module_Blog_Page extends ET_Builder_Module_Type_PostBase
 					$no_thumb_class = '';
 				}
 				?>
-
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post clearfix' . $no_thumb_class . $overlay_class  ); ?>>
+				
+			<?php	if ( $postCount == 1 ) { ?>	
+				<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post clearfix blog-post big' . $no_thumb_class . $overlay_class  ); ?>>
+			<?php } else { ?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post clearfix blog-post small' . $no_thumb_class . $overlay_class  ); ?>>
+			<?php }?>	
 
 			<?php
 				et_divi_post_format_content();
@@ -1064,33 +1069,62 @@ class Custom_ET_Builder_Module_Blog_Page extends ET_Builder_Module_Type_PostBase
 							echo '<div class="et_pb_image_container">';
 						}
 						?>
+
+						<?php	if ( $postCount == 1 ) { ?>
 							<a href="<?php esc_url( the_permalink() ); ?>" class="resource-article blue-tag-type">
-              <?php echo '<img src="'.get_the_post_thumbnail_url().'" alt="'.get_the_title().'" class="resource-img" />'; ?>
-                <div class="resource-content-wrap">
-                  <ul class="badges text-uppercase">
-                    <?php
-                    $category = get_the_category($post->ID);
-                    foreach ($category as $catVal) {
-                      echo '<li class="resource-badge">'.$catVal->name.'</li>'; 
-                    }
-                    ?>
-                  </ul>
-                  <div class="resource-content">
-                    <h5 class="resource-title">
-                      <?php the_title(); ?>
-                    </h5>
-                    <p class="resourse-text visible-lg visible-md">
-                      <?php the_excerpt(); ?>
-                    </p>
-                    <div class="author-info">
-                      <img src="<?php echo get_avatar_url( get_the_author_meta ( 'ID' )); ?>" alt="<?php the_author_meta( 'display_name' ); ?>" class="profile-pic pull-left" />
-                      <span class="author-name bolded-text pull-left"><?php the_author_meta( 'display_name' ); ?></span>
-                      <span class="reads-count pull-right"><?php echo get_post_meta($post->ID, 'read-time', true); ?></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="call-to-view"> View Blog Post <span class="svg-icon arrow-right-white"><img src="<?php echo get_home_url(); ?>/img/icons/arrow-right.png" alt="read more"></span></div>
+								<?php echo '<img src="'.get_the_post_thumbnail_url().'" alt="'.get_the_title().'" class="resource-img" />'; ?>
+								<div class="resource-content-wrap">
+									<ul class="badges text-uppercase">
+										<?php
+										$category = get_the_category($post->ID);
+										foreach ($category as $catVal) {
+											echo '<li class="resource-badge">'.$catVal->name.'</li>'; 
+										}
+										?>
+									</ul>
+									<div class="resource-content">
+										<h5 class="resource-title">
+											<?php the_title(); ?>
+										</h5>
+										<p class="resourse-text paragraph-small"><?php echo  get_the_excerpt(); ?></p>
+										<div class="author-info">
+											<img src="<?php echo get_avatar_url( get_the_author_meta ( 'ID' )); ?>" alt="<?php the_author_meta( 'display_name' ); ?>" class="profile-pic pull-left" />
+											<span class="author-name bolded-text pull-left"><?php the_author_meta( 'display_name' ); ?></span>
+											<span class="reads-count pull-right"><?php echo get_post_meta($post->ID, 'read-time', true); ?></span>
+										</div>
+									</div>
+								</div>
+								<div class="call-to-view"> View Blog Post <span class="svg-icon arrow-right-white"><img src="<?php echo get_home_url(); ?>/img/icons/arrow-right.png" alt="read more"></span></div>
 							</a>
+
+						<?php } else { ?>
+							<a href="<?php esc_url( the_permalink() ); ?>" class="resource-article blue-tag-type">
+								<ul class="badges text-uppercase">
+									<?php
+									$category = get_the_category($post->ID);
+									foreach ($category as $catVal) {
+										echo '<li class="resource-badge">'.$catVal->name.'</li>'; 
+									}
+									?>
+								</ul>
+								<div class="resource-content-wrap">
+									<div class="resource-content">
+										<h5 class="resource-title">
+											<?php the_title(); ?>
+										</h5>
+										<p class="resourse-text paragraph-small"><?php echo  get_the_excerpt(); ?></p>
+										<div class="author-info">
+											<img src="<?php echo get_avatar_url( get_the_author_meta ( 'ID' )); ?>" alt="<?php the_author_meta( 'display_name' ); ?>" class="profile-pic pull-left" />
+											<span class="author-name bolded-text pull-left"><?php the_author_meta( 'display_name' ); ?></span>
+											<span class="reads-count pull-right absolute-right"><?php echo get_post_meta($post->ID, 'read-time', true); ?></span>
+										</div>
+									</div>
+								</div>
+								<div class="call-to-view"> View Blog Post <span class="svg-icon arrow-right-white"><img src="<?php echo get_home_url(); ?>/img/icons/arrow-right.png" alt="read more"></span></div>
+							</a>
+						<?php } 
+						$postCount++; ?>
+
 					<?php
 						if ( 'on' !== $fullwidth ) echo '</div> <!-- .et_pb_image_container -->';
 					endif;
@@ -1111,7 +1145,7 @@ class Custom_ET_Builder_Module_Blog_Page extends ET_Builder_Module_Type_PostBase
 					if ( et_is_builder_plugin_active() ) {
 						include( ET_BUILDER_PLUGIN_DIR . 'includes/navigation.php' );
 					} else {
-						get_template_part( 'includes/navigation', 'index' );
+						get_template_part( 'custom-modules/includes/custom_navigation', 'index' );
 					}
 				}
 

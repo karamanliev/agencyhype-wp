@@ -429,12 +429,12 @@ class Custom_ET_Builder_Module_Portfolio_Small_2 extends ET_Builder_Module_Type_
 			}
 
 			$query->posts_next = array(
-				'label' => esc_html__( '&laquo; Older Entries', 'et_builder' ),
+				'label' => esc_html__( '&laquo; Older Case Studies', 'et_builder' ),
 				'url' => next_posts( $query->max_num_pages, false ),
 			);
 
 			$query->posts_prev = array(
-				'label' => esc_html__( 'Next Entries &raquo;', 'et_builder' ),
+				'label' => esc_html__( 'Newer Case Studies &raquo;', 'et_builder' ),
 				'url' => ( $et_paged > 1 ) ? previous_posts( false ) : '',
 			);
 
@@ -604,7 +604,7 @@ class Custom_ET_Builder_Module_Portfolio_Small_2 extends ET_Builder_Module_Type_
 					if ( ! empty( $portfolio->posts_next['url'] ) ) {
 						$next_posts_link_html = sprintf(
 							'<div class="alignleft">
-								<a href="%1$s">%2$s</a>
+								<a href="%1$s" class="btn btn-more">%2$s</a>
 							</div>',
 							esc_url( $portfolio->posts_next['url'] ),
 							esc_html( $portfolio->posts_next['label'] )
@@ -614,7 +614,7 @@ class Custom_ET_Builder_Module_Portfolio_Small_2 extends ET_Builder_Module_Type_
 					if ( ! empty( $portfolio->posts_prev['url'] ) ) {
 						$prev_posts_link_html = sprintf(
 							'<div class="alignright">
-								<a href="%1$s">%2$s</a>
+								<a href="%1$s" class="btn btn-more">%2$s</a>
 							</div>',
 							esc_url( $portfolio->posts_prev['url'] ),
 							esc_html( $portfolio->posts_prev['label'] )

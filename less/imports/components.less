@@ -1238,6 +1238,31 @@ body.page-resources {
   }
 }
 
+@media (max-width: 1170px) {
+  body.page-resources {
+    .resources-wrapper {
+      .et_pb_ajax_pagination_container {
+        > article.et_pb_post {
+          flex: 0 1 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  body.page-resources {
+    .resources-wrapper {
+      .et_pb_ajax_pagination_container {
+        > article.et_pb_post {
+          flex: 0 1 100%;
+        }
+      }
+    }
+  }
+}
+
+
 // CASE STUDIES
 body.page-case-studies {
   .our-work-small {
@@ -1248,6 +1273,106 @@ body.page-case-studies {
         padding: 0 15px;
         flex: 0 1 50%;
         margin-bottom: 0;
+      }
+      .pagination {
+        flex: 1 1 100%;
+        padding: 0 15px;
+        .btn-more {
+          margin: 0 0 35px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  body.page-case-studies {
+    .our-work-small {
+      .et_pb_ajax_pagination_container {
+        > .project {
+          flex: 0 1 100%;
+        }
+      }
+    }
+  }
+}
+
+// BLOG
+.blog-post {
+  margin-bottom: 30px !important;
+  padding: 0 15px;
+}
+
+.blog-section {
+  .blog-post {
+    .resource-article {
+      padding: initial;
+      margin-bottom: 0;
+      .call-to-view {
+        overflow: hidden;
+        .svg-icon {
+          top: -3px;
+        }
+      }
+    }
+    .resource-content-wrap {
+      padding: 0 30px 0 15px;
+    }
+    .resource-content {
+      padding-bottom: 5px;
+      .resource-title {
+        padding: 30px 0 30px;
+        font-size: 30px;
+      }
+      .resource-text {
+        padding-bottom: 10px;
+      }
+    }
+
+    &.small {
+      .resource-article {
+        margin-top: 120px;
+        overflow: visible;
+        transition: margin-top 0.3s ease-out;
+        .resource-content {
+          transition: padding-bottom 0.3s ease-out;
+        }
+      }
+      .badges {
+        padding-left: 35px;
+      }
+      .resource-content-wrap {
+        overflow: hidden;
+      }
+    }
+  }
+
+  #postHolder {
+    .pagination {
+      padding: 0 12px;
+      a {
+        color: #008bc6;
+      }
+    }
+  }
+}
+
+@media (min-width: 1170px) {
+  .blog-section {
+    .blog-post {
+      &.small {
+        .resource-article {
+          &:hover {
+            margin-top: 70px;
+            .resource-content-wrap {
+              padding-bottom: 0;
+              margin-top: 0;
+            }
+            .resource-content {
+              padding-bottom: 45px;
+            }
+          }
+        }
       }
     }
   }
