@@ -22,7 +22,7 @@ html {
 body {
   font-family: "adelle-sans", sans-serif;
   font-size: 14px;
-  line-height: 1.42857143;
+  line-height: 1.42857143 !important;
   color: #333333;
   background-color: #fff;
 }
@@ -2494,6 +2494,15 @@ h1.jumbotron-heading {
   -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
 }
+.blue-button {
+  background-color: #008bc6;
+  border: none;
+  color: #fff;
+}
+.blue-button:hover {
+  background-color: #f6ec31;
+  color: #4b4b4b;
+}
 .contact-us-btn {
   display: inline-block;
   margin: 35px 0 0;
@@ -2503,6 +2512,20 @@ h1.jumbotron-heading {
 }
 .mobile-cta-btn {
   display: none !important;
+}
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #777777;
+  border-radius: 10px;
 }
 #video-wrap {
   display: none;
@@ -2682,6 +2705,13 @@ h1.jumbotron-heading {
   margin: 0 0 40px 0;
   text-align: center;
 }
+.jumbotron-wrapper .jumbotron .heading-descr {
+  font-family: "adelle-sans", sans-serif;
+  font-size: 22px;
+  color: #000;
+  opacity: 0.4;
+  padding: 30px 16px;
+}
 .jumbotron-wrapper .jumbotron-home-video-wrapper {
   height: 700px;
   position: absolute;
@@ -2730,6 +2760,10 @@ h1.jumbotron-heading {
 .what-we-do-wrapper .what-we-do-item .h4 {
   padding: 0 0 30px 0;
   color: #008bc6;
+}
+.what-we-do-wrapper .section-title {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .success-stories-wrapper {
   padding-bottom: 50px;
@@ -3040,13 +3074,16 @@ h1.jumbotron-heading {
 }
 .cta-free-copy-bg {
   border-top: 10px solid #83D5FA;
-  background: url(../../../img/purple-banner.jpg) no-repeat;
   background-size: cover;
   min-height: 375px;
   margin-bottom: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+.cta-free-copy-bg.new-banner {
+  border-top-color: #F7ED33;
+  background-size: cover;
 }
 .cta-free-copy-bg .et_pb_row {
   display: -webkit-box;
@@ -3064,6 +3101,13 @@ h1.jumbotron-heading {
   max-width: 113%;
   right: 0;
   bottom: -182px;
+}
+.cta-free-copy-bg .badge {
+  padding: 9px 11px;
+  background: #f6ed32;
+  color: #333;
+  border-radius: 0;
+  letter-spacing: 0.8px;
 }
 .free-copy-title {
   font-size: 40px;
@@ -3809,9 +3853,14 @@ body.page-case-studies .our-work-small .et_pb_ajax_pagination_container .paginat
     flex: 0 1 100%;
   }
 }
+body.page-blog .contact-full-width-wrap {
+  display: none;
+}
+body.page-blog #main-footer {
+  padding: 90px 0;
+}
 .blog-post {
   margin-bottom: 30px !important;
-  padding: 0 15px;
 }
 .blog-section .blog-post .resource-article {
   padding: initial;
@@ -3854,6 +3903,116 @@ body.page-case-studies .our-work-small .et_pb_ajax_pagination_container .paginat
 .blog-section .blog-post.small .resource-content-wrap {
   overflow: hidden;
 }
+.blog-section .blog-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  margin-bottom: 145px;
+}
+.blog-section .sidebar {
+  background-color: #e8f7fe;
+  padding: 30px 16px;
+  margin-bottom: 50px;
+  border-right: none;
+}
+.blog-section .sidebar .widget_categories {
+  padding: 0 15px;
+}
+.blog-section .sidebar .widget_categories h4 {
+  padding: 10px 0 15px;
+  text-align: left;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0;
+  color: #666;
+  line-height: 1.1;
+}
+.blog-section .sidebar .widget_categories ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+.blog-section .sidebar .widget_categories ul li {
+  padding-bottom: 10px;
+  font-family: "adelle-sans", sans-serif;
+  font-size: 16px;
+  color: #008bc6;
+  text-decoration: underline;
+}
+.blog-section .sidebar .widget_categories ul li a {
+  -webkit-transition: color 0.3s ease-out;
+  -o-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+  color: inherit;
+}
+.blog-section .sidebar .widget_categories ul li a:hover {
+  color: #333333;
+}
+.blog-section .sidebar .widget_mc4wp_form_widget {
+  padding: 0 15px;
+}
+.blog-section .sidebar .widget_mc4wp_form_widget h4 {
+  padding: 10px 0 15px;
+  text-align: left;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0;
+  color: #666;
+  line-height: 1.1;
+}
+.blog-section .sidebar .widget_mc4wp_form_widget .paragraph-small {
+  font-size: 14px;
+  line-height: normal;
+  color: #666666;
+  margin-bottom: 40px;
+}
+.blog-section .sidebar .widget_mc4wp_form_widget .form-group {
+  position: relative;
+  margin-bottom: 15px;
+  font-family: "adelle-sans", sans-serif;
+}
+.blog-section .sidebar .widget_mc4wp_form_widget .form-group .custom-email-control {
+  color: #008bc6;
+  font-family: "adelle-sans", sans-serif;
+  font-size: 18px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid #008bc6;
+  padding: 5px 40px 5px 10px;
+  width: 100%;
+  font-weight: 500;
+  opacity: 0.5;
+}
+.blog-section .sidebar .widget_mc4wp_form_widget .form-group .custom-email-control:focus {
+  border-bottom-color: #008bc6;
+  color: #008bc6;
+  outline: none;
+  opacity: 1;
+}
+.blog-section .sidebar .widget_mc4wp_form_widget .form-group .custom-email-control:focus ~ label {
+  -webkit-transform: translate3d(-10px, -28px, 0) scale(0.75);
+  transform: translate3d(-10px, -28px, 0) scale(0.75);
+}
+.blog-section .sidebar .widget_mc4wp_form_widget .form-group label {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  -webkit-transition: -webkit-transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.25s;
+  transition: -webkit-transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.25s;
+  -o-transition: transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.25s;
+  transition: transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.25s;
+  transition: transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.25s, -webkit-transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.25s;
+  opacity: 0.5;
+  color: #008bc6;
+  font-size: 18px;
+  font-family: "adelle-sans", sans-serif;
+  font-weight: normal;
+}
 .blog-section #postHolder .pagination {
   padding: 0 12px;
 }
@@ -3870,6 +4029,91 @@ body.page-case-studies .our-work-small .et_pb_ajax_pagination_container .paginat
   }
   .blog-section .blog-post.small .resource-article:hover .resource-content {
     padding-bottom: 45px;
+  }
+  .blog-section .sidebar {
+    margin-bottom: 0;
+  }
+  .blog-section .blue-button {
+    display: block;
+    width: 100%;
+  }
+}
+body.page-contacts .contact-full-width-wrap {
+  display: none;
+}
+body.page-contacts #main-footer {
+  padding: 90px 0;
+}
+#map-section {
+  max-height: none !important;
+  padding-bottom: 100px;
+}
+#map-section #what-we-do {
+  margin-top: 0;
+}
+#map-section .what-we-do-item {
+  height: 310px;
+  padding: 0;
+}
+#map-section .what-we-do-item:hover {
+  height: 340px;
+  margin-top: 10px;
+}
+#map-section .what-we-do-item:hover .img-responsive {
+  bottom: 30px;
+}
+#map-section .what-we-do-item:hover .marker-map {
+  bottom: 65px;
+}
+#map-section .img-responsive {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+#map-section .marker-map {
+  position: absolute;
+  left: 50%;
+  bottom: 35px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+#map-section .work-item-contents {
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: white;
+}
+#map-section .work-item-contents h2 {
+  text-align: left;
+  color: #008bc6;
+  text-transform: capitalize;
+  font-size: 30px;
+}
+#map-section .work-item-contents p {
+  text-align: left;
+  color: #999;
+  font-size: 16px;
+}
+@media (min-width: 1170px) {
+  .what-we-do-wrapper .section-title {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+  .what-we-do-wrapper .what-we-do-item {
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    margin-bottom: 20px;
+    margin-top: 40px;
   }
 }
 .fade {
