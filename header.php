@@ -239,6 +239,7 @@
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" data-height-percentage="<?php echo esc_attr( et_get_option( 'logo_height', '54' ) ); ?>" />
 						<span class="visible-lg">Digital Agency</span>
+						<a href="https://www.agencyhype.com/contacts" class="visible-xs btn btn-default"> talk to an expert </a>
 					</a>
 				</div>
 			<?php

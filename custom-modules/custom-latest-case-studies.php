@@ -323,12 +323,13 @@ class Custom_ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBase
 		// Native conditional tag only works on page load. Data update needs $conditional_tags data
 		$is_front_page = et_fb_conditional_tag( 'is_front_page', $conditional_tags );
 		$is_search     = et_fb_conditional_tag( 'is_search', $conditional_tags );
-
+		$currentID = get_the_ID();
 		// Prepare query arguments
 		$query_args    = array(
 			'posts_per_page' => (int) $args['posts_number'],
 			'post_type'      => 'project',
 			'post_status'    => 'publish',
+			'post__not_in'   => array($currentID),
 		);
 
 		// Conditionally get paged data

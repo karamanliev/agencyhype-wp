@@ -1,4 +1,32 @@
 jQuery(document).ready(function($) {
+
+   /**
+   * Extension function to check if an attribute of element has changed (invisible class for #main-header in particular)
+   */
+  (function($) {
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+
+    $.fn.attrchange = function(callback) {
+        if (MutationObserver) {
+            var options = {
+                subtree: false,
+                attributes: true
+            };
+
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(e) {
+                    callback.call(e.target, e.attributeName);
+                });
+            });
+
+            return this.each(function() {
+                observer.observe(this, options);
+            });
+
+        }
+    }
+  })(jQuery);
+
   /**
    * Menu Hide
    */
@@ -54,6 +82,105 @@ jQuery(document).ready(function($) {
 	$( '.slide-down-trigger' ).click(function() {
 		$('.slide-down.collapse').addClass('in');
 		$('.slide-down').slideDown();
-	});
+  });
+  
+
+  	/***
+	 * Forms specific animation trigger
+	 */
+  // on focus
+	$(".input-animation-trigger").focus(function() {
+    $(this).parent().siblings('label').addClass('has-value');
+  })
+  // blur input fields on unfocus + if has no value
+  .blur(function() {
+    var text_val = $(this).val();
+    if(text_val === "") {
+      $(this).parent().siblings('label').removeClass('has-value');
+    }
+  });
+  
+  /**
+   * Open nav submenus with a click
+   */
+  $( '#top-menu > li' ).click(function() {
+      $("ul", this).toggleClass('show-grid');
+    });
+
+    $(window).click(function() {
+      $( '#top-menu > li > ul' ).removeClass('show-grid');
+    });
+
+    $('#top-menu').click(function(event){
+      event.stopPropagation();
+  });
+
+
+  /**
+   * Collapsible submenus in mobile
+   */   
+  function setup_collapsible_submenus() {
+      var $menu = $('#mobile_menu'),
+          top_level_link = '.menu-item-has-children.can-clicked > a';
+      $menu.find('a').each(function() {
+          $(this).off('click');
+           
+          if ( $(this).is(top_level_link) ) {
+              $(this).attr('href', '#');
+              $(this).next('.sub-menu').addClass('hide');
+          }
+           
+          if ( ! $(this).siblings('.sub-menu').length ) {
+              $(this).on('click', function(event) {
+                  $(this).parents('.mobile_nav').trigger('click');
+              });
+          } else {
+              $(this).on('click', function(event) {
+                  event.preventDefault();
+                  $(this).next('.sub-menu').toggleClass('visible');
+              });
+          }
+      });
+  }
+   
+  $(window).load(function() {
+      setTimeout(function() {
+          setup_collapsible_submenus();
+      }, 300);
+  });
+
+
+  /**
+   * Check if the page is a case styudy and create the submenu
+   * with the inpage links from the #IDs
+   */
+  if ( $('body').hasClass('single-project')) {
+
+    var IDs = $(".entry-content .project-anchor-section[id]") 
+      .map(function() { return this.id; })
+      .get(); 
+    
+    $listSelector = $(".navbar-right")
+      $.each(IDs, function(i, obj) {
+        $listSelector.append("<li class=visible-lg menuEl menuEl-"+obj+"><a href=#"+obj+">"+obj.replace('-', ' ')+"</a></li>")
+    });
+
+    // control subnav's top property so it doesn't get
+    // hidden by main-header
+    $('#main-header').attrchange(function(attrName) {
+      if(attrName=='class') {
+
+        if ( $('#main-header').hasClass('invisible') ) {
+          $('.subnav').animate({top: '0'}, 250);
+          // $('.subnav').css('top', '0px');
+        } else {
+          $('.subnav').animate({top: '80px'}, 250);
+          // $('.subnav').css('top', '80px');
+        }
+
+      }
+    });
+
+  }
 
 });
