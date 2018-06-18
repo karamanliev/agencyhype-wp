@@ -30,13 +30,13 @@ add_action( 'wp_head', 'theme_typekit_inline' );
 ================================================*/
 function Custom_Modules(){
  if(class_exists("ET_Builder_Module")){
- include("/custom-modules/custom-latest-case-studies.php");
- include("/custom-modules/custom-latest-resources.php");
- include("/custom-modules/custom-resources-page.php");
- include("/custom-modules/custom-blog-page.php");
- include("/custom-modules/custom-portfolio-big.php");
- include("/custom-modules/custom-portfolio-small-1.php");
- include("/custom-modules/custom-portfolio-small-2.php");
+ include "custom-modules/custom-latest-case-studies.php";
+ include "custom-modules/custom-latest-resources.php";
+ include "custom-modules/custom-resources-page.php";
+ include "custom-modules/custom-blog-page.php";
+ include "custom-modules/custom-portfolio-big.php";
+ include "custom-modules/custom-portfolio-small-1.php";
+ include "custom-modules/custom-portfolio-small-2.php";
 //  include("/custom-modules/custom-project-header.php");
 //  include("/custom-modules/custom-jumbotron-arrow.php");
  }
